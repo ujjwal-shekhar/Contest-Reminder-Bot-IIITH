@@ -39,6 +39,9 @@ for filename in os.listdir('./cogs'):
 @client.event
 async def on_ready():
 	print("Bot is Ready")
+	channel = client.get_channel(1014400159960027167)
+	await channel.message.send("LMAO DEDDD")
+
 	cnt = 0
 	for g in client.guilds:
 		cnt += len(g.members)
@@ -61,6 +64,7 @@ async def on_member_remove(member):
 #Add Your Bot Token
 token = os.getenv('CR_TOKEN',"NA")
 if token == 'NA':
-	token = os.environ['LOCAL_KEY']
+	# token = os.environ['LOCAL_KEY']
+	token = ""
 
 client.run(token)
