@@ -35,13 +35,27 @@ for filename in os.listdir('./cogs'):
 		client.load_extension("cogs.{}".format(filename.replace('.py','').strip()))
 
 
+##Testing 
+@client.event
+async def on_message(message):
+	# Don't respond to ourselves
+	if message.author == client.user:
+		return
+
+	# If bot is mentioned, reply with a message
+	if client.user in message.mentions:
+		await message.channel.send("Keyur too chad :)")
+		return
+
 ## On Ready
 @client.event
 async def on_ready():
 	print("Bot is Ready")
-	channel = client.get_channel(1014400159960027167)
-	await channel.message.send("LMAO DEDDD")
+	channelTesting = client.get_channel(1014400159960027167)
+	await channelTesting.send("Testing...")
 
+	# channelPC = client.get_channel(712406461439017020)
+	# await channelPC.send("The bot is ready now.")
 	cnt = 0
 	for g in client.guilds:
 		cnt += len(g.members)
@@ -64,7 +78,7 @@ async def on_member_remove(member):
 #Add Your Bot Token
 token = os.getenv('CR_TOKEN',"NA")
 if token == 'NA':
-	# token = os.environ['LOCAL_KEY']
-	token = ""
+	token = os.environ['LOCAL_KEY']
+	# token = ""
 
 client.run(token)
