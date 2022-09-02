@@ -24,7 +24,7 @@ else:
 
 
 ## Setup Client
-intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
+intents = discord.Intents.all()
 client = commands.Bot(command_prefix= 'cr;', intents = intents)
 
 
