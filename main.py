@@ -44,7 +44,7 @@ async def on_message(message):
 
 	# If bot is mentioned, reply with a message
 	if client.user in message.mentions:
-		await message.channel.send("Keyur too chad :)")
+		await message.channel.send("Keyur omega chad")
 		return
 
 ## On Ready
@@ -54,8 +54,9 @@ async def on_ready():
 	channelTesting = client.get_channel(1014400159960027167)
 	await channelTesting.send("Testing...")
 
-	# channelPC = client.get_channel(712406461439017020)
-	# await channelPC.send("The bot is ready now.")
+	channelPC = client.get_channel(712406461439017020)
+	await channelPC.send("The bot is being tested now.")
+	
 	cnt = 0
 	for g in client.guilds:
 		cnt += len(g.members)
